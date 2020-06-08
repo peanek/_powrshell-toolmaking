@@ -1,5 +1,4 @@
 Param (
-	[string]$computerString = 'localhost'
+	[string]$computerName = 'localhost'
 )
-Get-CimInstance -ClassName Win32_OperatingSystem `
-    -ComputerName $computerString
+Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $computerName
