@@ -26,7 +26,7 @@ $disks=Get-WmiObject -Class Win32_Logicaldisk -Filter "Drivetype=3"
                 $OK=$False
             };
         
-        $disk | Select DeviceID,VolumeName,Size,FreeSpace,` 
+        $disk | Select-Object DeviceID,VolumeName,Size,FreeSpace,`
             @{Name="OK";Expression={$OK}}
     }
 }

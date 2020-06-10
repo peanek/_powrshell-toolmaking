@@ -5,7 +5,7 @@ function Get-RemoteServiceInfo {
         [string]$computerName = 'localhost'
     )
 
-    $services = Get-Service | Select Name,DisplayName,Status
+    $services = Get-Service | Select-Object Name,DisplayName,Status
 
     foreach ($service in $services) {
         if ($service.Status -eq "Running" -and $service.DisplayName -like "*SQL*") {
