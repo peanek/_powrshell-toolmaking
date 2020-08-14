@@ -33,7 +33,7 @@ function Get-OSInfo {
             }
     
             $obj = New-Object -TypeName psobject -Property $props
-            Write-Output $obj | Format-Table -Property ComputerName,OSVersion,AdminPassword
+            Write-Output $obj | Format-Table -Property ComputerName,OSVersion,AdminPassword,Manufacturer,Model
         }
 
     }

@@ -27,13 +27,16 @@ function Get-DiskInfo {
     PROCESS {
         foreach ($Computer in $ComputerName) {
             $drive = Get-WmiObject -Class Win32_DiskDrive `
-                -ComputerName $ComputerName
+                -ComputerName $Computer
 
-            $properties = @{'FreeSpace'=$drive.}
+            $properties = @{'FreeSpace'=$drive.Size; 
+                            'Model'=$drive.Model}
             
+            $object = New-Object -TypeName PSObject -Property $properties
+            Write-Host $object
         }
     }
     END{}
 
 }
-Get-DiskInfo -ErrorLog x.txt -ComputerName host1,host2,host3
+Get-DiskInfo -ErrorLog x.txt -ComputerName localhost
